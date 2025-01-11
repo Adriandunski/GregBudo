@@ -1,18 +1,19 @@
 'use client'
-import {useEffect, useRef} from "react";
+import {ReactNode, useEffect, useRef} from "react";
 import {motion, useAnimate, useInView} from "framer-motion";
 
-export default function InViewApear({children, directory, offset = 200, delay = 0, slideOut = 30, once = true}: {
-    children: any,
+export default function InViewApear({children, directory, offset = 200, delay = 0, slideOut = 30, once = true, className = 'w-full h-full'}: {
+    children: ReactNode,
     directory: string,
     offset?: number,
     delay?: number,
     slideOut?: number,
-    once?: boolean
+    once?: boolean,
+    className?: string
 }) {
     const [scope, animate] = useAnimate();
     const refParent = useRef(null);
-    // @ts-ignore
+    // @ts-expect-error/bnjnjn
     const inView = useInView(refParent, {once: once, margin: `0px 0px -${offset}px 0px`});
 
     useEffect(() => {
@@ -21,14 +22,15 @@ export default function InViewApear({children, directory, offset = 200, delay = 
                 mass: 1,
                 type: "spring",
                 damping: 9,
-                delay: delay
+                delay: delay,
+                duration: 10000
             });
         }
     }, [inView]);
 
 
     return (
-        <div ref={refParent} className={'w-full h-full'}>
+        <div ref={refParent} className={className}>
             <motion.div ref={scope} className={'w-full h-full'} initial={{
                 y: directorySet(directory, 'y', slideOut),
                 x: directorySet(directory, 'x', slideOut),

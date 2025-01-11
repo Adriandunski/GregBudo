@@ -13,3 +13,7 @@
     box-sizing: border-box;
 }
 
+.Services_TileSerrvice {
+    width: calc((100% - 40px) / 3);
+}
+

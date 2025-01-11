@@ -1,4 +1,6 @@
-export default function ContainerButtonAkcent({children} : {children: any}) {
+import {ReactNode} from "react";
+
+export default function ContainerButtonAkcent({children}: {children: ReactNode}) {
 
     return (
         <div

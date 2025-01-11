@@ -1,4 +1,6 @@
-export default function ContainerButtonNormal({children} : {children: any}) {
+import {ReactNode} from "react";
+
+export default function ContainerButtonNormal({children} : {children: ReactNode}) {
 
     return (
         <div

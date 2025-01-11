@@ -10,20 +10,20 @@ export default function StartWeb() {
             <ContainerWeb idStr={'StartWeb'} className={'bg-greenMain z-10'}>
                 <div className={'flex flex-col items-center justify-center gap-7 md:flex-row'}>
                     <div className={'flex flex-col basis-1/2 shrink-0 gap-8'}>
-                        <InViewApear directory={'l'} offset={100} delay={0.25} slideOut={15}>
+                        <InViewApear directory={'l'} offset={100} delay={0.55} slideOut={50}>
                             <div
                                 className={'text-white text-center md:text-left pt-12 font-SourGummy text-6xl font-semibold tracking-wider lg:pt-0'}>Gregory
                                 buduje i remontuje
                             </div>
                         </InViewApear>
-                        <InViewApear directory={'l'} offset={100} delay={0.50} slideOut={15}>
+                        <InViewApear directory={'l'} offset={100} delay={0.75} slideOut={15}>
                             <div className={'text-white text-center md:text-left font-AdventPro text-lg'}>Solidne
                                 remonty i budowa na każdym etapie.
                                 Zaufaj profesionalistom, którzy dbają o jakość każdego projektu. Zaufaj naszemu
                                 wieloletniemu doświadczeniu.
                             </div>
                         </InViewApear>
-                        <InViewApear directory={'l'} offset={100} delay={0.75} slideOut={15}>
+                        <InViewApear directory={'l'} offset={100} delay={1} slideOut={15}>
                             <div className={'flex justify-center md:justify-start'}>
                                 <Link
                                     className={'bg-orangeMain px-7 py-2 text-white font-AdventPro text-lg rounded-md font-semibold'}

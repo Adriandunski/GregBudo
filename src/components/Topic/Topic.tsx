@@ -2,7 +2,7 @@ import InViewApear from "@/components/Animations/InViewApear";
 
 export default function Topic({name}: { name: string }) {
     return (
-        <div className={'flex flex-col justify-center items-center my-10 gap-4'}>
+        <div className={'flex flex-col justify-center items-center my-10 gap-4 hover:tracking-widest transition-all'}>
             <InViewApear directory={'b'} offset={100}>
                 <h2 className={'font-SourGummy font-bold text-5xl text-neutral-800'}>{name}</h2>
             </InViewApear>
