@@ -2,6 +2,8 @@ import Image from "next/image";
 import ContainerWeb from "@/components/ContainerWeb";
 import Link from "next/link";
 import InViewApear from "@/components/Animations/InViewApear";
+import PopupButtom from "@/components/PopUps/PopupButtom";
+import BottomPopupStartWeb from "@/sections/1_StartWeb/BottomPopupStartWeb";
 
 export default function StartWeb() {
 
@@ -37,6 +39,9 @@ export default function StartWeb() {
                         </InViewApear>
                     </div>
                 </div>
+                <PopupButtom>
+                    <BottomPopupStartWeb/>
+                </PopupButtom>
             </ContainerWeb>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 192">
                 <path fill="#203f2a" fillOpacity="1"

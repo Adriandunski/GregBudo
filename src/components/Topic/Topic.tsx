@@ -1,8 +1,31 @@
+'use client'
+
 import InViewApear from "@/components/Animations/InViewApear";
+import {useButtomPopContext} from "@/components/PopupButtomContext";
+import {useInView} from "framer-motion";
+import {useEffect, useRef} from "react";
 
 export default function Topic({name}: { name: string }) {
+    const refDiv = useRef(null);
+    const isInView = useInView(refDiv);
+
+    const {setVisible}: { setVisible: any} = useButtomPopContext();
+
+    useEffect(() => {
+        let timer2;
+
+        if (isInView) {
+            timer2 = setTimeout(() => {
+                setVisible(false);
+            }, 1000);
+        }
+
+
+        return () => clearTimeout(timer2);
+    }, [isInView]);
+
     return (
-        <div className={'flex flex-col justify-center items-center my-10 gap-4 hover:tracking-widest transition-all'}>
+        <div ref={refDiv} className={'flex flex-col justify-center items-center my-10 gap-4 hover:tracking-widest transition-all'}>
             <InViewApear directory={'b'} offset={100}>
                 <h2 className={'font-SourGummy font-bold text-5xl text-neutral-800'}>{name}</h2>
             </InViewApear>

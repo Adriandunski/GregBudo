@@ -1,36 +1,22 @@
 import ContainerWeb from "@/components/ContainerWeb";
 import Topic from "@/components/Topic/Topic";
 import KafelekRealizacje from "@/sections/5_Realizacje/KafelekRealizacje";
+import {getListRealizacje} from "@/utils/repoDataConnect";
 
-export default function RealizacjeSekcja() {
+export default async function RealizacjeSekcja() {
+    
+    const realizacjeData = await getListRealizacje();
 
     return (
         <section className={'flex flex-col relative -z-10'}>
-            <div className={'bg-orangeLight pb-20'}>
+            <div className={'bg-orangeLight'}>
                 <ContainerWeb idStr={'WhyUs'} className={''}>
                     <div className={'flex flex-row justify-end items-center'}>
                         <Topic name={'Realizacje'}/>
                     </div>
 
                     <div className={'flex flex-row gap-x-5 gap-y-10 flex-wrap'}>
-
-                        <KafelekRealizacje topic={'Łazienki'}
-                                           image={'/5_Realizacje/lazienka.jpg'}
-                                           desc={'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse'}></KafelekRealizacje>
-                        <KafelekRealizacje topic={'Podłogi'}
-                                           image={'/5_Realizacje/podloga.jpg'}
-                                           desc={'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse'}></KafelekRealizacje>
-                        <KafelekRealizacje topic={'Zadaszenia'}
-                                           image={'/5_Realizacje/zadaszenie.jpg'}
-                                           desc={'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse'}></KafelekRealizacje>
-                        <KafelekRealizacje topic={'Domki letniskowe'}
-                                           image={'/5_Realizacje/domek.jpg'}
-                                           desc={'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse'}></KafelekRealizacje>
-                        <KafelekRealizacje topic={'Altanki'}
-                                           image={'/5_Realizacje/altanka.jpg'}
-                                           desc={'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse'}></KafelekRealizacje>
-
-
+                        {realizacjeData.realizacjas.map(value => <KafelekRealizacje key={value.id} realizacja={value}/>)}
                     </div>
                 </ContainerWeb>
 

@@ -1,12 +1,25 @@
-import {getImage} from "@/utils/StorageRepo";
-import Image from "next/image";
+'use client'
 
-export default async function PhotoImageOpinions({urlPhoto} : {urlPhoto: string}) {
-    const imageUrl = await getImage(urlPhoto);
+import {getImage} from "@/utils/repoStorage";
+import Image from "next/image";
+import {useEffect, useState} from "react";
+
+export default function PhotoImageOpinions({urlPhoto} : {urlPhoto: string}) {
+    const [imageUrl, setImageUrl] = useState<string>('/');
+
+    useEffect(() => {
+        const fetchImage = async () => {
+            const temp = await getImage("/faces/" + urlPhoto);
+
+            setImageUrl(temp);
+        }
+
+        fetchImage();
+    }, []);
 
     return (
-            <div className={'bg-[#99B0A7] rounded-full w-20 h-20 relative'}>
-                <Image src={imageUrl} alt={'opiniaTwarz'} fill objectFit={'cover'}/>
+            <div className={'bg-orangeMain rounded-full w-20 h-20 relative'}>
+                <Image src={imageUrl} alt={'opiniaTwarzw'} fill objectFit={'cover'}/>
             </div>
     );
 }

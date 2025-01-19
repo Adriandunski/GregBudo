@@ -1,16 +1,18 @@
-import Image from "next/image";
+import PhotoRealizacja from "@/sections/5_Realizacje/PhotoRealizacja";
+import {getListOfFolder} from "@/utils/repoStorage";
 
-export default function KafelekRealizacje({topic, desc, image}: {topic: string, desc: string, image: string}) {
+export default async function KafelekRealizacje({realizacja}: {realizacja: any}) {
+
+    const iloscRealizacji = await getListOfFolder('/realizacje/' + realizacja.typ);
+
     return (
         <div
             className={'flex flex-col w-full lg:w-1/2-calc 2xl:w-1/3-calc rounded-t-3xl rounded-b-md overflow-hidden'}>
-            <div className={'flex flex-row bg-neutral-600 basis-[400px] relative'}>
-                <Image src={image} alt={'Realizacje'} fill={true} style={{ objectFit: 'cover' }} />
-            </div>
-            <div className={'flex flex-col p-5 gap-5 bg-white'}>
+            <PhotoRealizacja typRealizacji={realizacja.typ}/>
+            <div className={'flex flex-col justify-between h-full p-5 gap-5 bg-white'}>
                 <div className={'flex flex-col gap-2'}>
-                    <h2 className={'font-SourGummy text-3xl text-neutral-700'}>{topic}</h2>
-                    <p>{desc}</p>
+                    <h2 className={'font-SourGummy text-3xl text-neutral-700'}>{realizacja.typ}</h2>
+                    <p>{realizacja.opis}</p>
                 </div>
                 <div className={'flex flex-row justify-between text-neutral-700 font-AdventPro'}>
 
@@ -19,7 +21,7 @@ export default function KafelekRealizacje({topic, desc, image}: {topic: string, 
                     </button>
                     <div className={'flex flex-row gap-3 items-center'}>
                         <p className={'text-xl font-medium'}>Realizacji: </p>
-                        <p className={'text-xl font-semibold'}>18</p>
+                        <p className={'text-xl font-semibold'}>{iloscRealizacji}</p>
                     </div>
                 </div>
             </div>

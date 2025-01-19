@@ -73,7 +73,7 @@ export default function Carosuel({children, breaks, gap = 40, showButtons = true
 
     return (
         <div className={'flex flex-col justify-center items-center'}>
-            <div className={'overflow-hidden box-content py-14 relative'}
+            <div className={'overflow-hidden box-content py-10 relative'}
                  style={{
                      width: (optionsOfCard.slides * (optionsOfCard.withOfCard + gap)) - gap,
                      paddingLeft: paddingX,
@@ -104,7 +104,7 @@ export default function Carosuel({children, breaks, gap = 40, showButtons = true
                         className={'left-0 top-1/2 -translate-y-1/2  absolute hover:cursor-pointer w-12 h-12 bg-gold rounded-full p-2'}
                         onClick={() => calculateValueStepSlide(-1)}>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2"
-                             stroke="currentColor" className="w-full h-ful text-white">
+                             stroke="currentColor" className="w-full h-ful text-orangeMain">
                             <path strokeLinecap="round" strokeLinejoin="round"
                                   d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"/>
                         </svg>
@@ -115,7 +115,7 @@ export default function Carosuel({children, breaks, gap = 40, showButtons = true
                         className={'right-0 top-1/2 -translate-y-1/2  absolute hover:cursor-pointer w-12 h-12 bg-gold rounded-full p-2'}
                         onClick={() => calculateValueStepSlide(1)}>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2"
-                             stroke="currentColor" className="w-full h-ful text-white">
+                             stroke="currentColor" className="w-full h-ful text-orangeMain">
                             <path strokeLinecap="round" strokeLinejoin="round"
                                   d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/>
                         </svg>
@@ -123,11 +123,10 @@ export default function Carosuel({children, breaks, gap = 40, showButtons = true
 
             </div>
             <div className={'flex gap-1 justify-center w-full h-10'}>
-
                 <div className={'flex gap-3 items-center'}>
                     {myArray.map((num, index) => (
                         <button key={index}
-                                className={`rounded-full transition-all ${index === buttonIndex ? 'bg-gold w-6 h-6' : 'bg-neutral-400 w-5 h-5'}`}
+                                className={`rounded-full transition-all ${index === buttonIndex ? 'bg-orangeMain w-6 h-6' : 'bg-neutral-400 w-5 h-5'}`}
                                 onClick={() => {
                                     buttonHandle(index, num)
                                 }}

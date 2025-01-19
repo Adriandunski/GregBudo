@@ -10,7 +10,7 @@ export default function ServicesSection() {
                 <div className={'flex flex-row justify-start items-center'}>
                     <Topic name={'Usługi'}/>
                 </div>
-                <div className={'flex flex-col'}>
+                <div className={'flex flex-col overflow-hidden'}>
                     <div className={'flex flex-row gap-5 flex-wrap'}>
                         {tileSections.map((value, index) => (
                             <TileService key={index}
