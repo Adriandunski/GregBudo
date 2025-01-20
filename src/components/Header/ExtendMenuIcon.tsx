@@ -4,7 +4,7 @@ export default function ExtendMenuIcon({open, setOpen} : {open: boolean, setOpen
     const buttonVarians = {visible: {opacity: 1, scale: 1, transition: {delay: 0.3}}, hidden: {opacity: 0, scale: 0}}
 
     return (
-        <div className={'lg:hidden basis-1/3 flex justify-end items-center shrink-0'}>
+        <div className={'lg:hidden basis-1/3 flex justify-end items-center shrink-0 hover:cursor-pointer'}>
             <div className={'w-12 h-12'} onClick={() => setOpen(!open)}>
                 <AnimatePresence>
                     {open ?

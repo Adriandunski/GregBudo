@@ -6,8 +6,8 @@ import InViewApear from "@/components/Animations/InViewApear";
 
 export default function AboutUs() {
     return (
-        <section className={'relative'}>
-            <div className={'-top-40 absolute w-full h-40 bg-orangeDark -z-10'}></div>
+        <section className={'relative'} id={'aboutUs'}>
+            <div className={'-top-0 absolute w-full h-56 bg-orangeDark -z-50 -translate-y-full'}></div>
             <div className={'bg-orangeDark pb-8'}>
                 <ContainerWeb idStr={'AboutUs'} className={''}>
                     <div className={'flex flex-row items-center justify-center'}>

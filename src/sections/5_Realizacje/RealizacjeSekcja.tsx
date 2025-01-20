@@ -7,8 +7,9 @@ export default async function RealizacjeSekcja() {
     
     const realizacjeData = await getListRealizacje();
 
+
     return (
-        <section className={'flex flex-col relative -z-10'}>
+        <section className={'flex flex-col relative'}>
             <div className={'bg-orangeLight'}>
                 <ContainerWeb idStr={'WhyUs'} className={''}>
                     <div className={'flex flex-row justify-end items-center'}>
@@ -16,7 +17,7 @@ export default async function RealizacjeSekcja() {
                     </div>
 
                     <div className={'flex flex-row gap-x-5 gap-y-10 flex-wrap'}>
-                        {realizacjeData.realizacjas.map(value => <KafelekRealizacje key={value.id} realizacja={value}/>)}
+                        {realizacjeData.realizacjas.map((value, index) => <KafelekRealizacje key={index} realizacja={value}/>)}
                     </div>
                 </ContainerWeb>
 

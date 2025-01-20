@@ -4,8 +4,8 @@ import TileService from "@/sections/3_Services/TileService";
 
 export default function ServicesSection() {
     return (
-        <section className={'flex flex-col relative -z-10'}>
-            <div className={'-top-40 absolute w-full h-40 bg-orangeLight -z-10'}></div>
+        <section className={'flex flex-col relative'}>
+            <div className={'-top-40 absolute w-full h-40 bg-orangeLight -z-50'}></div>
             <ContainerWeb idStr={'WhyUs'} className={'bg-orangeLight pb-7'}>
                 <div className={'flex flex-row justify-start items-center'}>
                     <Topic name={'Usługi'}/>
