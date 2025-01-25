@@ -11,7 +11,7 @@ export default function ServicesSection() {
                     <Topic name={'Usługi'}/>
                 </div>
                 <div className={'flex flex-col overflow-hidden'}>
-                    <div className={'flex flex-row gap-5 flex-wrap'}>
+                    <div className={'flex flex-row gap-5 flex-wrap justify-center'}>
                         {tileSections.map((value, index) => (
                             <TileService key={index}
                                          icon={value.icon}

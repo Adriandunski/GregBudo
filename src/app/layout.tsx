@@ -3,6 +3,7 @@ import "./globals.css";
 import MainHeader from "@/components/Header/MainHeader";
 import PopupContextCenter from "@/components/PopupContextCenter";
 import PopupButtomContext from "@/components/PopupButtomContext";
+import MainFooter from "@/components/Footer/MainFooter";
 
 export const metadata: Metadata = {
     title: "Create Next App",
@@ -24,7 +25,7 @@ export default function RootLayout({
             <PopupButtomContext>
                 <MainHeader></MainHeader>
                 {children}
-                <div className={'border-2'}>Footer</div>
+                <MainFooter/>
             </PopupButtomContext>
         </PopupContextCenter>
         </body>

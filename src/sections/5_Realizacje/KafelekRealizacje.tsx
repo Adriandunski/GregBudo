@@ -8,7 +8,7 @@ export default async function KafelekRealizacje({realizacja}: {realizacja: any})
 
     return (
         <div
-            className={'flex flex-col w-full lg:w-1/2-calc 2xl:w-1/3-calc rounded-t-3xl rounded-b-md overflow-hidden border-2 hover:border-orangeMain transition-all duration-300'}>
+            className={'flex flex-col w-full lg:w-1/2-calc xl:w-1/3-calc rounded-t-3xl rounded-b-md overflow-hidden border-2 hover:border-orangeMain transition-all duration-300'}>
             <PhotoRealizacja typRealizacji={realizacja.typ}/>
             <div className={'flex flex-col justify-between h-full p-5 gap-5 bg-white'}>
                 <div className={'flex flex-col gap-2'}>
@@ -22,7 +22,7 @@ export default async function KafelekRealizacje({realizacja}: {realizacja: any})
                     </Link>
                     <div className={'flex flex-row gap-3 items-center'}>
                         <p className={'text-xl font-medium'}>Realizacji: </p>
-                        <p className={'text-xl font-semibold'}>{iloscRealizacji}</p>
+                        <p className={'text-xl font-semibold'}>{iloscRealizacji.length}</p>
                     </div>
                 </div>
             </div>

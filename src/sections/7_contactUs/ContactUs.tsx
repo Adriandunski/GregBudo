@@ -7,8 +7,8 @@ import Topic from "@/components/Topic/Topic";
 
 export default function ContactUs() {
     return (
-        <ContainerWeb idStr={'contactUs'}>
-            <div className={'flex flex-col gap-16'}>
+        <ContainerWeb idStr={'contactUs'} className={'mb-32'}>
+            <div className={'flex flex-col gap-5'}>
                 <div
                     className={'flex flex-col gap-y-3 lg:items-start justify-center lg:ml-32 items-center text-center lg:text-left'}>
                     <Topic name={"Jak możemy Ci pomóc?"}/>
@@ -47,10 +47,10 @@ export default function ContactUs() {
                             </TileContact>
                         </div>
                         <div className={'flex h-full rounded-2xl overflow-hidden'}>
-                                <iframe
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2267.246556658093!2d17.04887687610169!3d51.101282640290954!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470fc3e6a5a9f2ef%3A0xe0276d7f0e2e2ee3!2sGregBudo!5e1!3m2!1spl!2spl!4v1736863364432!5m2!1spl!2spl"
-                                    loading="eager"
-                                    referrerPolicy="no-referrer-when-downgrade" className={'w-full h-full'}></iframe>
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2505.389183295877!2d17.048876875963963!3d51.10127927172376!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470fc3e6a5a9f2ef%3A0xe0276d7f0e2e2ee3!2sGregBudo!5e0!3m2!1spl!2spl!4v1737487338265!5m2!1spl!2spl"
+                                loading="eager"
+                                referrerPolicy="no-referrer-when-downgrade" className={'w-full h-full'}></iframe>
                         </div>
                     </div>
                 </div>

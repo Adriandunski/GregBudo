@@ -17,5 +17,19 @@ export async function getListOfFolder(folderPath: string) {
 
     const folders = data.prefixes.map((prefix) => prefix.fullPath);
 
-    return folders.length;
+    return folders;
+}
+
+export async function getWszystkiePliki(folderPath: string) {
+    const folderRef = ref(storage, folderPath);
+    const data = await listAll(folderRef);
+
+    return data.items;
+}
+
+export async function getPierwszyPlik(folderPath: string) {
+    const folderRef = ref(storage, folderPath);
+    const data = await listAll(folderRef);
+
+    return data.items[0];
 }

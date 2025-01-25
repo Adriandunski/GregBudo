@@ -21,6 +21,11 @@ export default {
         '1/3-calc': 'calc((100% - 60px) / 3)',
         '1/2-calc': 'calc((100% - 60px) / 2)',
       },
+      gridTemplateColumns: {
+        'fill-300': 'repeat(auto-fill, 300px)',
+        'fill-260': 'repeat(auto-fill, 260px)',
+        'mosaic-grid': 'repeat(auto-fit, minmax(250px, 1fr))',
+      },
     },
     fontFamily: {
       'Jost': ['Jost'],

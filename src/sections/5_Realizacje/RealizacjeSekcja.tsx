@@ -16,7 +16,7 @@ export default async function RealizacjeSekcja() {
                         <Topic name={'Realizacje'}/>
                     </div>
 
-                    <div className={'flex flex-row gap-x-5 gap-y-10 flex-wrap'}>
+                    <div className={'flex flex-row gap-x-5 gap-y-10 flex-wrap justify-center'}>
                         {realizacjeData.realizacjas.map((value, index) => <KafelekRealizacje key={index} realizacja={value}/>)}
                     </div>
                 </ContainerWeb>

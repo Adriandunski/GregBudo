@@ -18,7 +18,7 @@ export default function PhotoRealizacja({typRealizacji}: {typRealizacji: string}
     }, []);
 
     return (
-        <div className={'flex flex-row bg-neutral-600 basis-[400px] shrink-0 relative'}>
+        <div className={'flex flex-col bg-neutral-600 h-[400px] shrink-0 relative'}>
             <Image src={imageUrl} alt={'Realizacje'} fill={true} style={{objectFit: 'cover'}}/>
         </div>
     );
