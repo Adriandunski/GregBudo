@@ -5,7 +5,7 @@ import {useButtomPopContext} from "@/components/PopupButtomContext";
 import {useInView} from "framer-motion";
 import {useEffect, useRef} from "react";
 
-export default function Topic({name}: { name: string }) {
+export default function Topic({name}: { name: string | null | undefined }) {
     const refDiv = useRef(null);
     const isInView = useInView(refDiv);
 

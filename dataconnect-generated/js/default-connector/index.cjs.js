@@ -1,4 +1,4 @@
-const { getDataConnect, queryRef, executeQuery, validateArgs } = require('firebase/data-connect');
+const { queryRef, executeQuery, validateArgs } = require('firebase/data-connect');
 
 const connectorConfig = {
   connector: 'default',
@@ -33,5 +33,19 @@ function listRealizacjeRef(dc) {
 exports.listRealizacjeRef = listRealizacjeRef;
 exports.listRealizacje = function listRealizacje(dc) {
   return executeQuery(listRealizacjeRef(dc));
+};
+
+function getRealizacjaRef(dcOrVars, vars) {
+  const { dc: dcInstance, vars: inputVars} = validateArgs(connectorConfig, dcOrVars, vars);
+  if('_useGeneratedSdk' in dcInstance) {
+    dcInstance._useGeneratedSdk();
+  } else {
+    console.error('Please update to the latest version of the Data Connect SDK by running `npm install firebase@dataconnect-preview`.');
+  }
+  return queryRef(dcInstance, 'getRealizacja', inputVars);
+}
+exports.getRealizacjaRef = getRealizacjaRef;
+exports.getRealizacja = function getRealizacja(dcOrVars, vars) {
+  return executeQuery(getRealizacjaRef(dcOrVars, vars));
 };
 

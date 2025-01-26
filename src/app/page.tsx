@@ -7,6 +7,7 @@ import Opinions from "@/sections/6_Opinie/Opinions";
 import ContactUs from "@/sections/7_contactUs/ContactUs";
 
 export default function Home() {
+
     return (
         <main>
             <StartWeb></StartWeb>

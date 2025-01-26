@@ -11,6 +11,7 @@
   "dependencies": {
     "@firebasegen/default-connector": "file:dataconnect-generated/js/default-connector",
     "axios": "^1.7.9",
+    "cheerio": "^1.0.0",
     "firebase": "^11.1.0",
     "motion": "^11.11.15",
     "next": "15.0.3",
