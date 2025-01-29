@@ -4,7 +4,7 @@ import Image from "next/image";
 export default function MainFooter() {
     return (
         <div className={'flex flex-col text-white'}>
-            <div className={'flex flex-col-reverse px-10 py-16 lg:flex-row bg-neutral-800 rounded-b-3xl gap-3 lg:gap-10'}>
+            <div className={'flex flex-col-reverse px-10 py-16 lg:flex-row bg-neutral-800 gap-3 lg:gap-10'}>
                 <div className={'flex flex-col items-end basis-2/6 lg:basis-1/6 gap-4'}>
                     <Image src={'/logoWeb.png'} alt={'Logo Gregbudo'} width={150} height={150}/>
                     <div className={'flex flex-row gap-3'}>
@@ -56,14 +56,14 @@ export default function MainFooter() {
                     </div>
                 </div>
             </div>
-            <div
-                className={'bg-orangeMain -z-10 -mt-5 flex flex-row justify-center gap-10 px-3 pb-3 pt-8 text-white font-AdventPro text-lg font-medium'}>
-                <ButtonStopkaDol nazwa={'Strona główna'} href={''}/>
-                <ButtonStopkaDol nazwa={'O nas'} href={''}/>
-                <ButtonStopkaDol nazwa={'Usługi'} href={''}/>
-                <ButtonStopkaDol nazwa={'Opinie'} href={''}/>
-                <ButtonStopkaDol nazwa={'Realizacje'} href={''}/>
-            </div>
+            {/*<div*/}
+            {/*    className={'bg-orangeMain -z-10 -mt-5 flex flex-row justify-center gap-10 px-3 pb-3 pt-8 text-white font-AdventPro text-lg font-medium'}>*/}
+            {/*    <ButtonStopkaDol nazwa={'Strona główna'} href={''}/>*/}
+            {/*    <ButtonStopkaDol nazwa={'O nas'} href={''}/>*/}
+            {/*    <ButtonStopkaDol nazwa={'Usługi'} href={''}/>*/}
+            {/*    <ButtonStopkaDol nazwa={'Opinie'} href={''}/>*/}
+            {/*    <ButtonStopkaDol nazwa={'Realizacje'} href={''}/>*/}
+            {/*</div>*/}
         </div>
     );
 }
