@@ -14,10 +14,10 @@ export default function ContactUs() {
                     className={'flex flex-col gap-y-3 lg:items-start justify-center lg:ml-32 items-center text-center lg:text-left'}>
                     <Topic name={"Jak możemy Ci pomóc?"}/>
                 </div>
-                <div className={'flex lg:flex-row flex-col xl:gap-8 gap-8'}>
-                    <div className={'basis-1/2'}>
+                <div className={'flex lg:flex-row flex-col xl:gap-8 gap-8 '}>
+                    <div className={'basis-1/2 '}>
                         <InViewApear directory={'l'}>
-                            <div className={'bg-orangeDark flex flex-col sm:p-8 p-8 rounded-2xl  gap-8'}>
+                            <div className={'bg-orangeDark flex flex-col sm:p-8 p-8 relative overflow-hidden rounded-2xl  gap-8'}>
 
                                 <p className={'font-Jost text-3xl font-semibold'}>Napisz do nas!</p>
                                 <Formule></Formule>

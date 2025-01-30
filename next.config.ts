@@ -10,6 +10,11 @@ const nextConfig: NextConfig = {
                 pathname: '/v0/b/**',
             },
         ],
+    },
+    experimental: {
+        serverActions: {
+            bodySizeLimit: '50mb'
+        }
     }
 };
 

@@ -3,28 +3,39 @@ import nodemailer from 'nodemailer';
 
 export async function sendFormule(prevState: any, formData: FormData) {
 
-    console.log(process.env.EMAIL)
-    // const transporter = nodemailer.createTransport({
-    //     host: "smtp.gmail.com",
-    //     port: 465,
-    //     auth: {
-    //         user: process.env.EMAIL,
-    //         pass: process.env.API_KEY,
-    //     },
-    // });
-    //
-    // transporter.verify(function (error, success) {
-    //     if (error) {
-    //         console.log(error);
-    //     } else {
-    //         console.log("Server is ready to take our messages");
-    //     }
-    // });
+    const email = formData.get('email');
+    const tel = formData.get('telefon');
+    const imie = formData.get('imie');
+    const pliki: File[] = formData.getAll("pliki") as File[]; // Pobiera pliki z FormData
+    const attachments = await Promise.all(
+        pliki.map(async (plik) => (
+            {
+                filename: plik.name
+                , content: Buffer.from(await plik.arrayBuffer())
+                , contentType: plik.type
+            })));
 
-    // Obsługa przesyłania plików (np. zapis na dysku lub przesłanie do chmury)
-    const email = formData.getAll("pliki"); // Pobiera pliki z FormData
-    console.log("Email:", email);
+    const transporter = nodemailer.createTransport({
+        host: "smtp.gmail.com",
+        port: 465,
+        auth: {
+            user: process.env.EMAIL,
+            pass: process.env.API_KEY,
+        },
+    });
+
+    const message = {
+        from: "adriandunski27@gmail.com",
+        to: "adriandunski27@gmail.com",
+        subject: "Nowe wiadomość",
+        text: `aaa`,
+        attachments: attachments
+    }
+
+    const info = await transporter.sendMail(message);
+    console.log(info);
+
 
     // Możesz np. zapisać pliki na dysku lub przesłać do chmury
-    return { success: true, message: "Pliki przesłane!" };
+    return {success: true, message: "Pliki przesłane!"};
 }
