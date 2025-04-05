@@ -8,7 +8,7 @@ export default function OpiniePopUp({opinion}: { opinion: any }) {
 
 
     return (
-        <div className={'flex flex-col rounded-xl bg-[#F8F8F8] py-9 px-6 gap-12 shadow-md lg:w-3/5 w-4/5'}>
+        <div className={'flex flex-col rounded-xl bg-[#F8F8F8] py-9 px-6 gap-12 shadow-md lg:w-3/5 w-4/5 border-2'}>
 
             <div className={'flex flex-col justify-between h-full gap-5'}>
                 <div className={'flex flex-col gap-5'}>
@@ -64,7 +64,7 @@ export default function OpiniePopUp({opinion}: { opinion: any }) {
                             <p className={'text-lg text-neutral-700 font-medium tracking-wider'}>{opinion.name}</p>
                         </div>
                         <div className={'flex items-end'}>
-                            <button onClick={() => setVisible(false)} className={'bg-red-300 px-3 py-2 text-white rounded-xl'}>Zamknij</button>
+                            <button onClick={() => setVisible(false)} className={'bg-red-500 px-3 py-2 text-white rounded-xl'}>Zamknij</button>
                         </div>
                     </div>
                 </div>

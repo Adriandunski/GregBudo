@@ -25,7 +25,7 @@ export default function OpinionsCard({opinion}: { opinion: any}) {
                             {opinion.opinion}
                         </p>
                         {opinion.opinion.length > 180 && <p className={'text-center -mt-3 font-medium text-2xl'}>...</p>}
-                        {opinion.opinion.length > 180 && <p onClick={() => setContent(<OpiniePopUp opinion={opinion}/>)}>Więcej</p>}
+                        {opinion.opinion.length > 180 && <p className={'text-right font-SourGummy hover:cursor-pointer'} onClick={() => setContent(<OpiniePopUp opinion={opinion}/>)}>Więcej</p>}
                     </div>
                 </div>
 

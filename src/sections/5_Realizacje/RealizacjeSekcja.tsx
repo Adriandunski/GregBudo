@@ -11,7 +11,7 @@ export default async function RealizacjeSekcja() {
     return (
         <section className={'flex flex-col relative'}>
             <div className={'bg-orangeLight'}>
-                <ContainerWeb idStr={'WhyUs'} className={''}>
+                <ContainerWeb idStr={'realizacje'} className={''}>
                     <div className={'flex flex-row justify-end items-center'}>
                         <Topic name={'Realizacje'}/>
                     </div>

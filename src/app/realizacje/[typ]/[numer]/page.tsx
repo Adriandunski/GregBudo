@@ -13,18 +13,6 @@ export default async function Page({params}: {
     const typ = decodeURI((await params).typ);
     const numer = decodeURI((await params).numer);
 
-    const listaZdjec = await getWszystkiePliki('realizacje/' + typ + '/' + numer)
-
-
-    // const url = 'https://firebasestorage.googleapis.com/v0/b/gregbudo.firebasestorage.app/o/realizacje%2F%C5%81azienki%2F1%2F20230407_123017%20(1).jpg?alt=media&token=d76098e8-6898-4068-ad5b-31fb79263ebb';
-    //
-    // const temp = await axios.get(url, {method: 'get', responseType: "arraybuffer"});
-    //
-    // const { data, info } = await sharp(temp.data)
-    //     .png()
-    //     .toBuffer({ resolveWithObject: true });
-    //
-    // const base64 = "data:image/png;base64," + Buffer.from(data).toString('base64');
 
     return(
         <>
@@ -32,8 +20,7 @@ export default async function Page({params}: {
                 <div className={'flex flex-row justify-start'}>
                     <Topic name={`${typ} ${numer}`}/>
                 </div>
-                {/*<Image src={base64} alt={'test'} width={100} height={100}/>*/}
-                <KontenerZdjec listaZdjec={listaZdjec}/>
+                <KontenerZdjec typ={typ} numer={numer}/>
             </ContainerWeb>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="-0.81 -0.81 1440 96.12">
                 <path fill="#F7EAD8" fillOpacity="1"
@@ -46,7 +33,9 @@ export default async function Page({params}: {
     );
 }
 
-async function KontenerZdjec({listaZdjec} : {listaZdjec: StorageReference[]}) {
+async function KontenerZdjec({typ, numer} : {typ: string, numer: string}) {
+    const listaZdjec = await getWszystkiePliki('realizacje/' + typ + '/' + numer)
+
     return(
         <div className={'grid grid-cols-mosaic-grid gap-5 auto-rows-[250px]'}>
             {listaZdjec.map(value => <Suspense key={value.name} fallback={ZdjecieLoading()}><Zdjecie  referencja={value}/></Suspense>)}

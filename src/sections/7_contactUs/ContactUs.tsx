@@ -4,11 +4,10 @@ import InViewApear from "@/components/Animations/InViewApear";
 import Formule from "@/sections/7_contactUs/Formule";
 import TileContact from "@/sections/7_contactUs/TileContact";
 import Topic from "@/components/Topic/Topic";
-import {sendFormule} from "@/actions";
 
 export default function ContactUs() {
     return (
-        <ContainerWeb idStr={'contactUs'} className={'mb-32'}>
+        <ContainerWeb idStr={'kontakt'} className={'mb-32'}>
             <div className={'flex flex-col gap-5'}>
                 <div
                     className={'flex flex-col gap-y-3 lg:items-start justify-center lg:ml-32 items-center text-center lg:text-left'}>

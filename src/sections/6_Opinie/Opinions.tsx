@@ -21,7 +21,7 @@ export default async function Opinions() {
     const data = await getOpinions();
 
     return (
-        <ContainerWeb idStr={'opinions'} className={'bg-white'}>
+        <ContainerWeb idStr={'opinie'} className={'bg-white'}>
             <div className={'flex flex-col gap-2'}>
                 <div className={'flex flex-col gap-3 items-center text-center'}>
                     <Topic name={'Co ludzie o nas myślą'}/>

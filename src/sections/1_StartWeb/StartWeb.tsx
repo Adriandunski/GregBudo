@@ -2,8 +2,7 @@ import Image from "next/image";
 import ContainerWeb from "@/components/ContainerWeb";
 import Link from "next/link";
 import InViewApear from "@/components/Animations/InViewApear";
-import PopupButtom from "@/components/PopUps/PopupButtom";
-import BottomPopupStartWeb from "@/sections/1_StartWeb/BottomPopupStartWeb";
+import Przycisk from "@/sections/1_StartWeb/Przycisk";
 
 export default function StartWeb() {
 
@@ -14,22 +13,21 @@ export default function StartWeb() {
                     <div className={'flex flex-col basis-1/2 shrink-0 gap-8'}>
                         <InViewApear directory={'l'} offset={100} delay={0.55} slideOut={50}>
                             <div
-                                className={'text-white text-center md:text-left pt-12 font-SourGummy text-6xl font-semibold tracking-wider lg:pt-0'}>Gregory
-                                buduje i remontuje
+                                className={'text-white text-center md:text-left pt-12 font-SourGummy text-6xl font-semibold tracking-wider lg:pt-0'}>Planujesz Remont lub Budowę? GregBudo Ci w Tym Pomoże!
                             </div>
                         </InViewApear>
                         <InViewApear directory={'l'} offset={100} delay={0.75} slideOut={15}>
-                            <div className={'text-white text-center md:text-left font-AdventPro text-lg'}>Solidne
-                                remonty i budowa na każdym etapie.
-                                Zaufaj profesionalistom, którzy dbają o jakość każdego projektu. Zaufaj naszemu
-                                wieloletniemu doświadczeniu.
+                            <div className={'text-white text-center md:text-left font-AdventPro text-3xl leading-relaxed'}>Działamy na rynku remontowo-budowlanym od lat, realizując projekty dla klientów indywidualnych i firm. Niezależnie od tego, czy potrzebujesz drobnego remontu, czy kompleksowej budowy – możesz na nas liczyć!
                             </div>
                         </InViewApear>
                         <InViewApear directory={'l'} offset={100} delay={1} slideOut={15}>
                             <div className={'flex justify-center md:justify-start'}>
-                                <Link
-                                    className={'bg-orangeMain px-7 py-2 text-white font-AdventPro text-lg rounded-md font-semibold'}
-                                    href={'/O_nas'}>Sprawdź Nasze Usługi</Link>
+                                <Przycisk>
+                                    <Link
+                                        className={'bg-orangeMain px-7 py-3 text-white font-AdventPro text-lg rounded-md font-semibold'}
+                                        href={'/#uslugi'}>Sprawdź Nasze Usługi</Link>
+                                </Przycisk>
+
                             </div>
                         </InViewApear>
                     </div>
@@ -39,9 +37,9 @@ export default function StartWeb() {
                         </InViewApear>
                     </div>
                 </div>
-                <PopupButtom>
-                    <BottomPopupStartWeb/>
-                </PopupButtom>
+                {/*<PopupButtom>*/}
+                {/*    <BottomPopupStartWeb/>*/}
+                {/*</PopupButtom>*/}
             </ContainerWeb>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 192" className={''}>
                 <path fill="#203f2a" fillOpacity="1"

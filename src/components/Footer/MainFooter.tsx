@@ -17,8 +17,8 @@ export default function MainFooter() {
                 <div className={'flex lg:basis-5/6 justify-around lg:justify-start'}>
                     <div className={'mx-7 md:m-0 flex flex-row justify-between md:justify-around flex-wrap w-full   gap-10 md:gap-3 lg:gap-5'}>
                         <div className={'flex flex-col gap-3'}>
-                            <L_5 href={''}>Usługi</L_5>
-                            <div className={'flex flex-col'}>
+                            <L_5 href={'/#uslugi'}>Usługi</L_5>
+                            <div className={'flex flex-col gap-2'}>
                                 <P_5>Remonty kuchni</P_5>
                                 <P_5>Remonty łazienke</P_5>
                                 <P_5>Hydraulika</P_5>
@@ -28,8 +28,8 @@ export default function MainFooter() {
                             </div>
                         </div>
                         <div className={'flex flex-col gap-3'}>
-                            <L_5 href={''}>Realizacje</L_5>
-                            <div className={'flex flex-col'}>
+                            <L_5 href={'/#realizacje'}>Realizacje</L_5>
+                            <div className={'flex flex-col gap-2'}>
                                 <P_5>Kuchnie</P_5>
                                 <P_5>Łazienki</P_5>
                                 <P_5>Zadaszenia</P_5>
@@ -76,7 +76,7 @@ function ButtonStopkaDol({nazwa, href}: { nazwa: string, href: string }) {
 
 function L_5({children, href}: { children: string, href: string }) {
     return (
-        <Link href={href} className={'font-AdventPro font-medium text-2xl'}>
+        <Link href={href} className={'font-AdventPro font-medium text-2xl py-1 px-2'}>
             {children}
         </Link>
     );
@@ -84,7 +84,7 @@ function L_5({children, href}: { children: string, href: string }) {
 
 function P_5({children}: { children: string }) {
     return (
-        <p className={'font-AdventPro text-lg'}>
+        <p className={'font-AdventPro text-lg border-2 hover:border-2 border-neutral-800 hover:border-white rounded-md py-1 px-2 cursor-pointer'}>
             {children}
         </p>
     );

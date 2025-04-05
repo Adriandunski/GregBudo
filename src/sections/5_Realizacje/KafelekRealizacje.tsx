@@ -1,6 +1,7 @@
 import PhotoRealizacja from "@/sections/5_Realizacje/PhotoRealizacja";
 import {getListOfFolder} from "@/utils/repoStorage";
 import Link from "next/link";
+import Przycisk from "@/sections/1_StartWeb/Przycisk";
 
 export default async function KafelekRealizacje({realizacja}: {realizacja: any}) {
 
@@ -17,9 +18,15 @@ export default async function KafelekRealizacje({realizacja}: {realizacja: any})
                 </div>
                 <div className={'flex flex-row justify-between text-neutral-700 font-AdventPro'}>
 
-                    <Link href={'/realizacje/' + realizacja.typ} className={'bg-orangeMain text-white px-6 py-2 rounded-lg font-medium text-lg hover:cursor-pointer'}>
-                        Zobacz
-                    </Link>
+                    <Przycisk disable={iloscRealizacji.length <= 0}>
+                        <Link href={'/realizacje/' + realizacja.typ} className={'bg-orangeMain text-white px-6 py-2 rounded-lg font-medium text-lg hover:cursor-pointer'}>
+                            Zobacz
+                        </Link>
+                    </Przycisk>
+
+
+
+
                     <div className={'flex flex-row gap-3 items-center'}>
                         <p className={'text-xl font-medium'}>Realizacji: </p>
                         <p className={'text-xl font-semibold'}>{iloscRealizacji.length}</p>

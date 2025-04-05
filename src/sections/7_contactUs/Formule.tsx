@@ -37,10 +37,10 @@ export default function Formule() {
         <form action={formAction} className={'flex flex-col gap-8'}>
             <input className={'py-4 px-5 rounded-md'} type={'text'} name={'imie'} placeholder={'Imię'}/>
             <div className={'flex gap-6'}>
-                <input className={'w-full py-4 px-5 rounded-md'} type={'tel'} name={'telefon'} placeholder={'Telefon'}/>
+                <input className={'w-full py-4 px-5 rounded-md'} type={'tel'} name={'telefon'} placeholder={'Telefon'} required={true}/>
                 <input className={'w-full py-4 px-5 rounded-md'} type={'email'} name={'email'} placeholder={'Email'}/>
             </div>
-            <textarea className={'py-4 px-5 rounded-md'} rows={6} placeholder={'Wiadomość'}></textarea>
+            <textarea className={'py-4 px-5 rounded-md'} rows={6} placeholder={'Wiadomość'} name={'wiadomosc'} required={true}></textarea>
             <div className={'flex flex-row items-start gap-5'}>
                 <button className={'shrink-0 border-2 border-black px-2 py-1 rounded-md'} onClick={wybierzPlik}> Wybierz
                     pliki

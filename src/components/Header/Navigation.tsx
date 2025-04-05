@@ -32,27 +32,29 @@ export default function Navigation({open, setOpen}: { open: boolean, setOpen: an
                     >
 
                             <LingNavigationContainer>
-                                <Link href={'/'}>Strona główna</Link>
+                                <Link href={'/#StartWeb'}>Strona główna</Link>
                             </LingNavigationContainer>
 
                             <LingNavigationContainer>
-                                <Link href={'/#aboutUs'}>O nas</Link>
+                                <Link href={'/#oNas'}>O nas</Link>
                             </LingNavigationContainer>
 
                             <LingNavigationContainer>
-                                <Link href={'/#services'}>Usługi</Link>
+                                <Link href={'/#uslugi'}>Usługi</Link>
                             </LingNavigationContainer>
 
                             <LingNavigationContainer>
-                                <Link href={'/#opinions'}>Opinie</Link>
+                                <Link href={'/#realizacje'}>Realizacje</Link>
                             </LingNavigationContainer>
 
                             <LingNavigationContainer>
-                                <Link href={'/#opinions'}>Realizacje</Link>
+                                <Link href={'/#opinie'}>Opinie</Link>
                             </LingNavigationContainer>
+
+
 
                             <LingNavigationOrangeContainer>
-                                <Link href={'/#contactUs'}>Kontakt</Link>
+                                <Link href={'/#kontakt'}>Kontakt</Link>
                             </LingNavigationOrangeContainer>
 
 

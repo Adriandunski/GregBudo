@@ -6,7 +6,6 @@ import Topic from "@/components/Topic/Topic";
 import Link from "next/link";
 import BackPrzycisk from "@/app/realizacje/[typ]/[numer]/BackPrzycisk";
 import {Suspense} from "react";
-import {redirect, useRouter} from "next/navigation";
 
 export default async function Page({params}: {
     params: Promise<{ typ: string }>
@@ -20,7 +19,9 @@ export default async function Page({params}: {
                 <div className={'flex flex-row justify-start'}>
                     <Topic name={typ}/>
                 </div>
-                <KontenerKart typ={typ}/>
+                <Suspense fallback={<KontenerKartLoading/>}>
+                    <KontenerKart typ={typ}/>
+                </Suspense>
             </ContainerWeb>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="-0.81 -0.81 1440 96.12">
                 <path fill="#F7EAD8" fillOpacity="1"
@@ -38,11 +39,11 @@ async function KontenerKart({typ}: { typ: string }) {
         await Promise.all(
             realizacje.map(async value => {
                 const pliki = await getWszystkiePliki(value);
+                // await new Promise(resolve => setTimeout(resolve, 4000));
                 return pliki.length > 0 ? value : null;
             })
         )
     ).filter(value => value !== null);
-
 
     return (
         <div className={'flex flex-col'}>
@@ -62,8 +63,8 @@ async function Karta({numer, typ}: { numer: number, typ: string }) {
     const zdjecieURL = await getImage(pierwszeZdjecie.fullPath);
 
     return (
-        <div className={'flex basis-[300px] shrink-0 flex-col gap-5'} >
-            <div className={'hover:cursor-pointer overflow-hidden h-[400px] relative border-8 border-white rounded-sm'} onClick={() => redirect(`/realizacje/${typ}/${numer}`)}>
+        <div className={'flex basis-[300px] shrink-0 flex-col gap-5'}>
+            <div className={'hover:cursor-pointer overflow-hidden h-[400px] relative border-8 border-white rounded-sm'}>
                 <Image src={zdjecieURL} alt={'zdjecie'} fill={true} objectFit={'cover'}/>
             </div>
             <div className={'flex justify-center'}>
@@ -77,9 +78,28 @@ async function Karta({numer, typ}: { numer: number, typ: string }) {
     );
 }
 
+function KontenerKartLoading() {
+    return (
+
+        <div className={'flex border-2'}>
+            <div className="space-y-8 animate-pulse flex w-full">
+                <div className="flex items-center justify-center w-full h-96 bg-gray-300 rounded-sm dark:bg-gray-700">
+                    <svg className="w-10 h-10 text-gray-200 dark:text-gray-600" aria-hidden="true"
+                         xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
+                        <path
+                            d="M18 0H2a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm4.376 10.481A1 1 0 0 1 16 15H4a1 1 0 0 1-.895-1.447l3.5-7A1 1 0 0 1 7.468 6a.965.965 0 0 1 .9.5l2.775 4.757 1.546-1.887a1 1 0 0 1 1.618.1l2.541 4a1 1 0 0 1 .028 1.011Z"/>
+                    </svg>
+                </div>
+            </div>
+
+        </div>
+    )
+}
+
 function KartaLoading() {
     return (
-        <div className="flex items-center justify-center basis-[300px] h-[400px] max-w-sm bg-white rounded-lg animate-pulse dark:bg-gray-800">
+        <div
+            className="flex items-center justify-center basis-[300px] h-[400px] max-w-sm bg-white rounded-lg animate-pulse dark:bg-gray-800">
             <svg className="w-10 h-10 text-gray-200 dark:text-gray-600" aria-hidden="true"
                  xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 20">
                 <path d="M5 5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707A2.98 2.98 0 0 0 .13 5H5Z"/>

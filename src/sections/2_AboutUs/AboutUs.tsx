@@ -3,13 +3,14 @@ import Topic from "@/components/Topic/Topic";
 import Link from "next/link";
 import Image from "next/image";
 import InViewApear from "@/components/Animations/InViewApear";
+import Przycisk from "@/sections/1_StartWeb/Przycisk";
 
 export default function AboutUs() {
     return (
         <section className={'relative'} id={'aboutUs'}>
             <div className={'-top-0 absolute w-full h-56 bg-orangeDark -z-50 -translate-y-full'}></div>
             <div className={'bg-orangeDark pb-8'}>
-                <ContainerWeb idStr={'AboutUs'} className={''}>
+                <ContainerWeb idStr={'oNas'} className={''}>
                     <div className={'flex flex-row items-center justify-center'}>
                         <Topic name={'O nas'}/>
                     </div>
@@ -17,26 +18,25 @@ export default function AboutUs() {
                     <div className={'flex flex-col gap-10 lg:flex-row'}>
                         <div className={'basis-2/5 bg-orangeMain rounded-3xl flex flex-col gap-7 px-7 py-12'}>
                             <Image src={'/2_AboutUs/budynek01.svg'} alt={'budynek'} width={100} height={100}></Image>
-                            <p className={'font-SourGummy font-bold text-4xl text-neutral-800'}>Lorem Ipsum is
-                                simply</p>
-                            <p className={'text-white font-AdventPro text-lg tracking-wider leading-7'}>
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                                has been the industrys standard dummy text ever since the 1500s, when an unknown
-                                printer took a galley of type and scrambled it to make a type specimen book. standard
-                                dummy text ever since the 1500s, when an unknown
-                                printer took a galley of type and scrambled it to make a type specimen book.
+                            <p className={'font-SourGummy font-bold text-4xl text-neutral-800'}>GregBudo – Solidność, Doświadczenie, Profesjonalizm</p>
+                            <p className={'text-white font-AdventPro text-xl tracking-wider leading-7'}>
+                                Rozumiemy, że remont czy budowa to duża inwestycja, dlatego dbamy o przejrzystość procesu, terminowość i komunikację z klientem na każdym etapie prac. Naszym celem jest nie tylko spełnienie oczekiwań, ale ich przekroczenie.
                             </p>
                             <div className={'flex'}>
-                                <Link href={'/'}
-                                      className={'bg-greenMain px-7 py-2 text-white font-AdventPro text-lg rounded-md font-semibold'}>Nasze
-                                    Usługi</Link>
+                                <Przycisk>
+                                    <Link href={'/#uslugi'}
+                                          className={'bg-greenMain px-7 py-2 text-white font-AdventPro text-lg rounded-md font-semibold'}>Nasze
+                                        Usługi
+                                    </Link>
+                                </Przycisk>
+
                             </div>
                         </div>
                         <div className={'basis-3/5 flex flex-col gap-7'}>
 
                             <div className={'basis-1/5'}>
                                 <InViewApear directory={'b'} offset={150}>
-                                    <div className={'bg-white rounded-3xl px-3 py-5 flex flex-row'}>
+                                    <div className={'bg-white rounded-3xl px-3 py-5 flex flex-row min-h-24'}>
                                         <div className={'basis-1/5 border-r-2 border-r-neutral-200 px-2'}>
                                             <div className={'relative flex w-full h-full'}>
                                                 <Image src={'/2_AboutUs/kask.svg'} alt={'budynek'} fill={true}
@@ -44,11 +44,8 @@ export default function AboutUs() {
                                             </div>
                                         </div>
                                         <div className={'basis-4/5'}>
-                                            <p className={'text-base text-neutral-600 font-medium font-AdventPro ml-5'}> Lorem
-                                                Ipsum is simply dummy text of the printing and typesetting industry.
-                                                Lorem
-                                                Ipsum
-                                                has been the industrys standard dummy text ever since the 1500s,</p>
+                                            <p className={'text-base text-neutral-600 font-medium font-AdventPro ml-5'}>
+                                                Pracujemy zgodnie z najwyższymi standardami i normami branżowymi, dbając o jakość oraz bezpieczeństwo naszych pracowników i klientów. </p>
                                         </div>
                                     </div>
                                 </InViewApear>
@@ -64,7 +61,7 @@ export default function AboutUs() {
 
                             <div className={'basis-1/5'}>
                                 <InViewApear directory={'b'} offset={150}>
-                                    <div className={'bg-white rounded-3xl px-3 py-5 flex flex-row'}>
+                                    <div className={'bg-white rounded-3xl px-3 py-5 flex flex-row min-h-24'}>
                                         <div className={'basis-1/5 border-r-2 border-r-neutral-200 px-2'}>
                                             <div className={'relative flex w-full h-full'}>
                                                 <Image src={'/2_AboutUs/sciana.svg'} alt={'budynek'} fill={true}
@@ -72,11 +69,7 @@ export default function AboutUs() {
                                             </div>
                                         </div>
                                         <div className={'basis-4/5'}>
-                                            <p className={'text-base text-neutral-600 font-medium font-AdventPro ml-5'}> Lorem
-                                                Ipsum is simply dummy text of the printing and typesetting industry.
-                                                Lorem
-                                                Ipsum
-                                                has been the industrys standard dummy text ever since the 1500s,</p>
+                                            <p className={'text-base text-neutral-600 font-medium font-AdventPro ml-5'}>Zapewniamy pełną obsługę inwestycji – od projektu, przez budowę i remont, aż po finalne wykończenie wnętrz. Korzystamy z wysokiej jakości materiałów, by każda realizacja była trwała, funkcjonalna i estetyczna.</p>
                                         </div>
                                     </div>
                                 </InViewApear>
