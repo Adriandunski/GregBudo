@@ -1,7 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
+import {getListRealizacje} from "@/utils/repoDataConnect";
 
-export default function MainFooter() {
+export default async function MainFooter() {
+
+    const realizacjeData = await getListRealizacje();
+
     return (
         <div className={'flex flex-col text-white'}>
             <div className={'flex flex-col-reverse px-10 py-16 lg:flex-row bg-neutral-800 gap-3 lg:gap-10'}>
@@ -15,25 +19,28 @@ export default function MainFooter() {
                     </div>
                 </div>
                 <div className={'flex lg:basis-5/6 justify-around lg:justify-start'}>
-                    <div className={'mx-7 md:m-0 flex flex-row justify-between md:justify-around flex-wrap w-full   gap-10 md:gap-3 lg:gap-5'}>
+                    <div
+                        className={'mx-7 md:m-0 flex flex-row justify-between md:justify-around flex-wrap w-full   gap-10 md:gap-3 lg:gap-5'}>
                         <div className={'flex flex-col gap-3'}>
                             <L_5 href={'/#uslugi'}>Usługi</L_5>
-                            <div className={'flex flex-col gap-2'}>
-                                <P_5>Remonty kuchni</P_5>
-                                <P_5>Remonty łazienke</P_5>
-                                <P_5>Hydraulika</P_5>
-                                <P_5>Elektryka</P_5>
-                                <P_5>Domku letniwsko</P_5>
-                                <P_5>Remonty kuchni</P_5>
+                            <div className={'flex flex-col gap-0.5'}>
+                                <P_5 href={'#uslugi'}>Malowanie i tapetowanie ścian</P_5>
+                                <P_5 href={'#uslugi'}>Remonty kuchni</P_5>
+                                <P_5 href={'#uslugi'}>Remonty łazienek</P_5>
+                                <P_5 href={'#uslugi'}>Układanie podłóg</P_5>
+                                <P_5 href={'#uslugi'}>Instalacje hydrauliczne</P_5>
+                                <P_5 href={'#uslugi'}>Instalacje elektryczne</P_5>
+                                <P_5 href={'#uslugi'}>Zabudowy gipsowo-kartonowe</P_5>
+                                <P_5 href={'#uslugi'}>Składanie mebli</P_5>
+                                <P_5 href={'#uslugi'}>Budowa tarasów i zadaszeń</P_5>
+                                <P_5 href={'#uslugi'}>Budowa domków letniskowych</P_5>
                             </div>
                         </div>
                         <div className={'flex flex-col gap-3'}>
                             <L_5 href={'/#realizacje'}>Realizacje</L_5>
-                            <div className={'flex flex-col gap-2'}>
-                                <P_5>Kuchnie</P_5>
-                                <P_5>Łazienki</P_5>
-                                <P_5>Zadaszenia</P_5>
-                                <P_5>Domki letniskowe</P_5>
+                            <div className={'flex flex-col gap-0.5'}>
+                                {realizacjeData.realizacjas.map((realizacja) => (
+                                    <P_5 key={realizacja.id} href={'/realizacje/' + realizacja.typ}>{realizacja.typ2 ?? ''}</P_5>))}
                             </div>
                         </div>
                         <div className={'flex flex-col gap-3'}>
@@ -74,19 +81,21 @@ function ButtonStopkaDol({nazwa, href}: { nazwa: string, href: string }) {
     );
 }
 
-function L_5({children, href}: { children: string, href: string }) {
+function L_5({children, href = ''}: { children: string, href?: string }) {
     return (
-        <Link href={href} className={'font-AdventPro font-medium text-2xl py-1 px-2'}>
+        <Link href={href} className={'font-AdventPro font-medium text-2xl py-0.5 px-2'}>
             {children}
         </Link>
     );
 }
 
-function P_5({children}: { children: string }) {
+function P_5({children, href = ''}: { children: string, href?: string }) {
     return (
-        <p className={'font-AdventPro text-lg border-2 hover:border-2 border-neutral-800 hover:border-white rounded-md py-1 px-2 cursor-pointer'}>
-            {children}
-        </p>
+        <Link href={href}>
+            <p className={'font-AdventPro text-lg border-2 hover:border-2 border-neutral-800 hover:border-white rounded-md py-[1px] px-2 cursor-pointer'}>
+                {children}
+            </p>
+        </Link>
     );
 }
 

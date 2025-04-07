@@ -1,4 +1,4 @@
-import { getDataConnect, queryRef, executeQuery, validateArgs } from 'firebase/data-connect';
+import { queryRef, executeQuery, validateArgs } from 'firebase/data-connect';
 
 export const connectorConfig = {
   connector: 'default',
@@ -8,25 +8,31 @@ export const connectorConfig = {
 
 export function listOpinieRef(dc) {
   const { dc: dcInstance} = validateArgs(connectorConfig, dc, undefined);
-  if('_useGeneratedSdk' in dcInstance) {
-    dcInstance._useGeneratedSdk();
-  } else {
-    console.error('Please update to the latest version of the Data Connect SDK by running `npm install firebase@dataconnect-preview`.');
-  }
+  dcInstance._useGeneratedSdk();
   return queryRef(dcInstance, 'ListOpinie');
 }
+
 export function listOpinie(dc) {
   return executeQuery(listOpinieRef(dc));
 }
+
 export function listRealizacjeRef(dc) {
   const { dc: dcInstance} = validateArgs(connectorConfig, dc, undefined);
-  if('_useGeneratedSdk' in dcInstance) {
-    dcInstance._useGeneratedSdk();
-  } else {
-    console.error('Please update to the latest version of the Data Connect SDK by running `npm install firebase@dataconnect-preview`.');
-  }
+  dcInstance._useGeneratedSdk();
   return queryRef(dcInstance, 'ListRealizacje');
 }
+
 export function listRealizacje(dc) {
   return executeQuery(listRealizacjeRef(dc));
 }
+
+export function getRealizacjaRef(dcOrVars, vars) {
+  const { dc: dcInstance, vars: inputVars} = validateArgs(connectorConfig, dcOrVars, vars);
+  dcInstance._useGeneratedSdk();
+  return queryRef(dcInstance, 'getRealizacja', inputVars);
+}
+
+export function getRealizacja(dcOrVars, vars) {
+  return executeQuery(getRealizacjaRef(dcOrVars, vars));
+}
+

@@ -6,6 +6,7 @@ import Topic from "@/components/Topic/Topic";
 import Link from "next/link";
 import BackPrzycisk from "@/app/realizacje/[typ]/[numer]/BackPrzycisk";
 import {Suspense} from "react";
+import {getRealizacjaByTyp} from "@/utils/repoDataConnect";
 
 export default async function Page({params}: {
     params: Promise<{ typ: string }>
@@ -61,16 +62,20 @@ async function KontenerKart({typ}: { typ: string }) {
 async function Karta({numer, typ}: { numer: number, typ: string }) {
     const pierwszeZdjecie = await getPierwszyPlik('/realizacje/' + typ + '/' + numer);
     const zdjecieURL = await getImage(pierwszeZdjecie.fullPath);
+    const realizacja = await getRealizacjaByTyp(typ);
 
     return (
         <div className={'flex basis-[300px] shrink-0 flex-col gap-5'}>
-            <div className={'hover:cursor-pointer overflow-hidden h-[400px] relative border-8 border-white rounded-sm'}>
-                <Image src={zdjecieURL} alt={'zdjecie'} fill={true} objectFit={'cover'}/>
-            </div>
+            <Link href={`/realizacje/${typ}/${numer}`}>
+                <div
+                    className={'hover:cursor-pointer overflow-hidden h-[400px] relative border-8 border-white rounded-sm'}>
+                    <Image src={zdjecieURL} alt={'zdjecie'} fill={true} objectFit={'cover'}/>
+                </div>
+            </Link>
             <div className={'flex justify-center'}>
                 <Link href={`/realizacje/${typ}/${numer}`}
                       className={'border-2 border-orangeMain rounded-md py-2 px-10 font-SourGummy text-4xl  font-extralight bg-white'}>
-                    <span>Pokój: </span>
+                    <span>{realizacja.realizacjas[0].typ2}: </span>
                     <span>{numer}</span>
                 </Link>
             </div>

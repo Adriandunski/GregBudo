@@ -1,6 +1,7 @@
 "use server";
 import nodemailer from 'nodemailer';
 
+
 export async function sendFormule(prevState: any, formData: FormData) {
 
     const email = formData.get('email');

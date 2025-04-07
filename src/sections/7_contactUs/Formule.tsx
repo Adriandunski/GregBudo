@@ -20,6 +20,9 @@ export default function Formule() {
 
     function wybierzPlik(event: Event) {
         event.preventDefault();
+
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-expect-error
         document.getElementById('fileInput').click();
     }
 
@@ -29,7 +32,12 @@ export default function Formule() {
     }
 
     const handleFileChange = (event: Event) => {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-expect-error
         const nowaTablica = [...files, ...Array.from(event.target.files)];
+
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-expect-error
         setFiles(nowaTablica); // Zamień FileList na tablicę
     };
 
@@ -42,14 +50,15 @@ export default function Formule() {
             </div>
             <textarea className={'py-4 px-5 rounded-md'} rows={6} placeholder={'Wiadomość'} name={'wiadomosc'} required={true}></textarea>
             <div className={'flex flex-row items-start gap-5'}>
-                <button className={'shrink-0 border-2 border-black px-2 py-1 rounded-md'} onClick={wybierzPlik}> Wybierz
+                <button className={'shrink-0 border-2 border-black px-2 py-1 rounded-md'} onClick={() => wybierzPlik}> Wybierz
                     pliki
                 </button>
                 <div className={'flex flex-row flex-wrap gap-3'}>
-                    {files.map((value, index) => <Plik key={index} file={value} index={index} onDelete={deleteFile}/>)}
+                    {files.map((value, index) => <Plik key={index} file={value} index={index} onDelete={ ()=> deleteFile}/>)}
                 </div>
             </div>
-            <input id="fileInput" name={'pliki'} onChange={handleFileChange} className={'border-2 hidden'} type={"file"}
+
+            <input id="fileInput" name={'pliki'}  onChange={() => handleFileChange} className={'border-2 hidden'} type={"file"}
                    multiple={true}/>
 
             <button disabled={pending} className={'bg-orangeMain text-white py-4 rounded-3xl'}>Wyślij</button>

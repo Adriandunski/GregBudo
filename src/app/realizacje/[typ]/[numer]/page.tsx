@@ -6,19 +6,21 @@ import {StorageReference, getDownloadURL} from "@firebase/storage";
 import {Suspense} from "react";
 import ZdjecieClient from "@/app/realizacje/[typ]/[numer]/ZdjecieClient";
 import BackPrzycisk from "@/app/realizacje/[typ]/[numer]/BackPrzycisk";
+import {getRealizacjaByTyp} from "@/utils/repoDataConnect";
 
 export default async function Page({params}: {
     params: Promise<{ typ: string, numer: string }>
 }) {
     const typ = decodeURI((await params).typ);
     const numer = decodeURI((await params).numer);
+    const realizacja = await getRealizacjaByTyp(typ);
 
 
     return(
         <>
             <ContainerWeb idStr={''} className={'bg-orangeDark'}>
                 <div className={'flex flex-row justify-start'}>
-                    <Topic name={`${typ} ${numer}`}/>
+                    <Topic name={`${realizacja.realizacjas[0].typ2} ${numer}`}/>
                 </div>
                 <KontenerZdjec typ={typ} numer={numer}/>
             </ContainerWeb>
@@ -37,7 +39,7 @@ async function KontenerZdjec({typ, numer} : {typ: string, numer: string}) {
     const listaZdjec = await getWszystkiePliki('realizacje/' + typ + '/' + numer)
 
     return(
-        <div className={'grid grid-cols-mosaic-grid gap-5 auto-rows-[250px]'}>
+        <div className={'grid grid-cols-4 gap-8 auto-rows-[500px]'}>
             {listaZdjec.map(value => <Suspense key={value.name} fallback={ZdjecieLoading()}><Zdjecie  referencja={value}/></Suspense>)}
         </div>
     );
@@ -48,7 +50,7 @@ function ZdjecieLoading() {
         <div role="status"
              className="space-y-8 animate-pulse md:space-y-0 md:space-x-8 rtl:space-x-reverse md:flex md:items-center">
             <div
-                className="flex items-center justify-center w-full h-48 bg-gray-300 rounded-sm sm:w-96 dark:bg-gray-700">
+                className="flex items-center justify-center w-full h-[500px] bg-gray-300 rounded-sm sm:w-96 dark:bg-gray-700">
                 <svg className="w-10 h-10 text-gray-200 dark:text-gray-600" aria-hidden="true"
                      xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
                     <path

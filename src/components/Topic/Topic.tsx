@@ -12,7 +12,7 @@ export default function Topic({name}: { name: string }) {
     const {setVisible}: { setVisible: any} = useButtomPopContext();
 
     useEffect(() => {
-        let timer2;
+        let timer2: ReturnType<typeof setTimeout>;
 
         if (isInView) {
             timer2 = setTimeout(() => {

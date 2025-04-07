@@ -1,6 +1,12 @@
 import appFireBase from "@/utils/firebase";
 import { executeQuery } from "firebase/data-connect";
-import {ListOpinieData, listOpinieRef, ListRealizacjeData, listRealizacjeRef} from "@firebasegen/default-connector";
+import {
+    getRealizacjaRef, GetRealizacjaVariables,
+    ListOpinieData,
+    listOpinieRef,
+    ListRealizacjeData,
+    listRealizacjeRef
+} from "@firebasegen/default-connector";
 
 export async function getOpinions(): Promise<ListOpinieData> {
     const app = appFireBase;
@@ -13,6 +19,15 @@ export async function getOpinions(): Promise<ListOpinieData> {
 export async function getListRealizacje(): Promise<ListRealizacjeData> {
     const app = appFireBase;
     const ref = listRealizacjeRef();
+    const {data} = await executeQuery(ref);
+
+    return data;
+}
+
+export async function getRealizacjaByTyp(typ: string) {
+    const app = appFireBase;
+    const ref = getRealizacjaRef({typ: typ});
+
     const {data} = await executeQuery(ref);
 
     return data;
